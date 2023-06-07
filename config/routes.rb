@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notes
+  resources :instruments
   resources :hasmanydanses
   resources :danses do
     collection do

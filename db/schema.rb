@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_132408) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_143149) do
   create_table "danses", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -24,12 +24,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_132408) do
     t.integer "mylayout"
   end
 
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.string "familier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "type"
     t.string "name"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pieceinstruments", force: :cascade do |t|
+    t.integer "instrument_id"
+    t.integer "piece_id"
   end
 
   create_table "pieces", force: :cascade do |t|
