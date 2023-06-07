@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @piece %>
+
+<div style="border:1px solid black;">
+  <b>je suis curieux(se)</b>
+  <br>
+  <br>
+  <%=@piece.mycontent.html_safe%>
+  <%@piece.hasmanydanses.each do |h|%>
+    <%=render "danses/danse#{h.mylayout}",danse:h.danse%>
+  <%end%>
+
+</div>
+<button id="myBtn" onclick="">ajouter une danse</button>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+      <div class="modal-content">
+            <span class="close">&times;</span>
+            <div><%=render "hasmanydanses/form",hasmanydanse:@hasmanydanse%>
+            </div>
+                  </div>
+
+</div>
+
+<div>
+  <%= link_to "Edit this piece", edit_piece_path(@piece) %> |
+  <%= link_to "Back to pieces", pieces_path %>
+
+  <%= button_to "Destroy this piece", @piece, method: :delete %>
+</div>

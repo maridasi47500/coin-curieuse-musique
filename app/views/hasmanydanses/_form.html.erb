@@ -1,0 +1,33 @@
+<%= form_with(model: hasmanydanse) do |form| %>
+  <% if hasmanydanse.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hasmanydanse.errors.count, "error") %> prohibited this hasmanydanse from being saved:</h2>
+
+      <ul>
+        <% hasmanydanse.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :piece_id %>
+  </div>
+
+  <div>
+    <%= form.label :danse_id, style: "display: block" %>
+    <%= form.collection_select :danse_id,Danse.all,:id,:title, {},{id:"mydanse"} %>
+  </div>
+  <div id="voirdanse">
+  </div>
+
+  <div>
+    <%= form.label :mylayout, style: "display: block" %>
+    <%= form.select :mylayout, [['',''],["layout style 1","1"],["layout style 2","2"]],{},{onchange: "$.ajax({url:'/danses/mydanse',type:'post',data:{myid:$('#mydanse').val(),mylayout:this.value},success:function(data){$('#voirdanse').html(data);}});return false;"} %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

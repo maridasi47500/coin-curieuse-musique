@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hasmanydanse %>
+
+<div>
+  <%= link_to "Edit this hasmanydanse", edit_hasmanydanse_path(@hasmanydanse) %> |
+  <%= link_to "Back to hasmanydanses", hasmanydanses_path %>
+
+  <%= button_to "Destroy this hasmanydanse", @hasmanydanse, method: :delete %>
+</div>
