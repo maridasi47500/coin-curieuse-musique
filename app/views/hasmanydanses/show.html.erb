@@ -4,6 +4,7 @@
 
 <div>
   <%= link_to "Edit this hasmanydanse", edit_hasmanydanse_path(@hasmanydanse) %> |
+    <%= link_to "Back to piece", piece_path(@hasmanydanse.piece) %>|
   <%= link_to "Back to hasmanydanses", hasmanydanses_path %>
 
   <%= button_to "Destroy this hasmanydanse", @hasmanydanse, method: :delete %>

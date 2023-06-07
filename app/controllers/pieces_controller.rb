@@ -1,9 +1,11 @@
 class PiecesController < ApplicationController
-  before_action :set_piece, only: %i[ show edit update destroy ]
+  before_action :set_piece, only: %i[ show edit update editpiece destroy ]
 
   # GET /pieces or /pieces.json
   def index
     @pieces = Piece.all
+  end
+  def editpiece
   end
 
   # GET /pieces/1 or /pieces/1.json

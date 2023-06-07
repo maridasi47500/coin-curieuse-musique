@@ -1,0 +1,16 @@
+
+
+<div style="border:1px solid black;">
+    <b>je suis curieux(se)</b>
+      <br>
+        <br>
+          <%=piece.mycontent.html_safe%>
+            <%piece.hasmanydanses.each do |h|%>
+                  <%=render "danses/danse#{h.mylayout}",danse:h.danse%>
+                  <%if params[:action]=="editpiece"%>
+                    <%=link_to "edit",edit_hasmanydanse_path(h.id)%>
+                  <%end%>
+                    <%end%>
+                    <p>l'armature  c'est les dièses et les bémols à la clé</p>
+
+</div>

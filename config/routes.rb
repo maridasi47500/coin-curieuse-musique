@@ -5,7 +5,11 @@ Rails.application.routes.draw do
       post 'mydanse'
     end
   end
-  resources :pieces
+  resources :pieces do
+    member do
+      get "editpiece"
+    end
+  end
   devise_for :users
   resources :people
   root "pieces#index"
