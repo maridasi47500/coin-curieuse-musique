@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+<p class="mytones"><%@tones.each do |t|%><span><%=link_to t.name,tones_path(tone: t.name)%></span><%end%></p>
+
+<%= render @tone %>
+<%if @videos.length > 0%>
+<%=render @videos%>
+<%else%>
+  <p>aucune vidéo dans cette tonalite</p>
+<%end%>
+
+<div>
+  <%= link_to "Edit this tone", edit_tone_path(@tone) %> |
+  <%= link_to "Back to tones", tones_path %>
+
+  <%= button_to "Destroy this tone", @tone, method: :delete %>
+</div>

@@ -1,0 +1,2 @@
+class Tone < ApplicationRecord
+end

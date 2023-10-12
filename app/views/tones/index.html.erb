@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tones</h1>
+
+<div id="tones">
+  <p class="mytones"><%@tones.each do |t|%><span><%=link_to t.name,tones_path(tone: t.name)%></span><%end%></p>
+</div>
+<%if params[:tone].to_s.length > 0%>
+  <%if @tone %>
+  <%= render @tone %>
+<%else%>
+  <p>aucune tonalité</p>
+<%end%>
+
+  <%if @videos.length > 0%>
+    <%=render @videos%>
+  <%else%>
+        <p>aucune vidéo dans cette tonalite</p>
+      <%end%>
+    <%else%>
+      <p>choisissez une tonalité</p>
+<%end%>
+
+
+<%= link_to "New tone", new_tone_path %>
