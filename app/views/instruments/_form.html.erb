@@ -20,6 +20,10 @@
     <%= form.label :familier, style: "display: block" %>
     <%= form.text_field :familier %>
   </div>
+  <div>
+    <%= form.label :tone_id, style: "display: block" %>
+    <%= form.select :tone_id, options_for_select(Tone.all.collect{|g|[g.name,g.id]}), {include_blank: true} %>
+  </div>
 
   <div>
     <%= form.submit %>

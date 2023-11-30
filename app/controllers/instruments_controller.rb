@@ -65,6 +65,6 @@ class InstrumentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def instrument_params
-      params.require(:instrument).permit(:name, :familier)
+      params.require(:instrument).permit(:name, :familier,:tone_id)
     end
 end
